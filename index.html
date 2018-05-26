@@ -1,32 +1,55 @@
 <html>
     <head><title>Cat Clicker Game</title>
+    <style>
+    #list {
+        width: 500px;
+        float: left;
+    }
+    #cat_container {
+        width: 500px;
+        float: right;
+    }
+    #picture {
+        width: 500px;
+    }
+    </style>
     </head>
     <body>
-        <div id="cat1">
-        <h1 id="name1" ></h1>
-        <img id="image" src="cat.jpg" height="500px">
-        <h1 id="counter1"></h1>
+        <div id="list"> </div>
+        <div id="cat_container"><img id="picture"><h1 id="name"></h1>
+        <h1 id="clicks"></h1>
         </div>
-        <div id="cat2">
-        <h1 id="name2"></h1>
-        <img id="image2" src="cat2.jpg" height="500px">
-        <h1 id="counter2"></h1>
-        </div>
+
         <script>
-                var i=0,j = 0;
-                document.getElementById('name1').innerHTML = "Brownie";
-                document.getElementById('name2').innerHTML = "Blackie";
-                var counter = document.getElementById('counter');
-                var imageelem = document.getElementById('image');
-                var image2elem = document.getElementById('image2');
-                image2elem.addEventListener('click', function(){
-                    j++;
-                    counter2.innerHTML = j;
-                }, false);
-                imageelem.addEventListener('click', function(){
-                    i++;
-                    counter1.innerHTML = i;
-                }, false);
+        var cats = ['brownie','blackie','ed','jim','ivy'];
+        var current_click = 0;
+        var clicks = [0,0,0,0,0];
+        var picture = document.getElementById('picture');
+        for(var i=0;i<cats.length;i++){
+            var cat = cats[i];
+
+            var cat_element = document.createElement('div');
+
+            cat_element.textContent = cat;
+
+            cat_element.addEventListener('click', (function(catCopy, number) {
+                return function(){
+                    picture.src = catCopy+".jpg";
+                    current_click = number;
+                    document.getElementById('name').innerHTML = catCopy;
+                    clicks_element.innerHTML= clicks[current_click];
+                };
+            })(cat, i));
+
+            document.getElementById('list').appendChild(cat_element);
+
+        }
+        var clicks_element = document.getElementById('clicks')
+        var picture_element = document.getElementById('picture');
+        picture_element.addEventListener('click', function(){
+            clicks[current_click] += 1;
+            clicks_element.innerHTML= clicks[current_click];
+        });
         </script>
     </body>
 </html>
