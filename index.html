@@ -2,15 +2,30 @@
     <head><title>Cat Clicker Game</title>
     </head>
     <body>
+        <div id="cat1">
+        <h1 id="name1" ></h1>
         <img id="image" src="cat.jpg" height="500px">
-        <h1 id="counter"></h1>
+        <h1 id="counter1"></h1>
+        </div>
+        <div id="cat2">
+        <h1 id="name2"></h1>
+        <img id="image2" src="cat2.jpg" height="500px">
+        <h1 id="counter2"></h1>
+        </div>
         <script>
-                var i = 0;
+                var i=0,j = 0;
+                document.getElementById('name1').innerHTML = "Brownie";
+                document.getElementById('name2').innerHTML = "Blackie";
                 var counter = document.getElementById('counter');
                 var imageelem = document.getElementById('image');
+                var image2elem = document.getElementById('image2');
+                image2elem.addEventListener('click', function(){
+                    j++;
+                    counter2.innerHTML = j;
+                }, false);
                 imageelem.addEventListener('click', function(){
                     i++;
-                    counter.innerHTML = i;
+                    counter1.innerHTML = i;
                 }, false);
         </script>
     </body>
