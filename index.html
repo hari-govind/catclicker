@@ -1,0 +1,17 @@
+<html>
+    <head><title>Cat Clicker Game</title>
+    </head>
+    <body>
+        <img id="image" src="cat.jpg" height="500px">
+        <h1 id="counter"></h1>
+        <script>
+                var i = 0;
+                var counter = document.getElementById('counter');
+                var imageelem = document.getElementById('image');
+                imageelem.addEventListener('click', function(){
+                    i++;
+                    counter.innerHTML = i;
+                }, false);
+        </script>
+    </body>
+</html>
