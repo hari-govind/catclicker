@@ -1,0 +1,11 @@
+#list {
+        width: 500px;
+        float: left;
+    }
+    #cat_container {
+        width: 500px;
+        float: right;
+    }
+    #picture {
+        width: 500px;
+    }
